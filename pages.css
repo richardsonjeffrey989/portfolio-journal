@@ -1,0 +1,181 @@
+/* ============================================================
+   各章节页面版式 - 每页不同构图，统一平面拼贴语言
+   ============================================================ */
+
+/* ---- 扉页 ---- */
+.frontispiece{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.frontispiece .big{font-family:var(--font-title);font-size:clamp(34px,5vw,58px);line-height:1.05;color:var(--ink);margin:8px 0}
+.frontispiece .big em{color:var(--pink-deep);font-style:italic}
+.frontispiece .hand{font-family:var(--font-hand);font-size:15px;color:var(--pink-deep);transform:rotate(-4deg);margin:10px 0}
+.frontispiece .frame{border:1.5px solid var(--pink);border-radius:50%;width:130px;height:130px;display:grid;place-items:center;font-family:var(--font-title);font-size:13px;color:var(--pink-deep);letter-spacing:.14em;margin-bottom:16px;position:relative}
+.frontispiece .frame::before{content:"✿";position:absolute;font-size:40px;color:var(--pink-soft);z-index:-1}
+.frontispiece .meta{font-size:11px;color:var(--ink-soft);letter-spacing:.12em;margin-top:18px}
+
+/* ---- 目录 ---- */
+.toc-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.toc-item{
+  display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:6px;
+  background:rgba(255,255,255,.72);border:1px solid var(--line);cursor:pointer;
+  transition:.2s;position:relative;
+}
+.toc-item:nth-child(odd){background:rgba(251,228,238,.7)}
+.toc-item:hover{transform:translateX(5px);border-color:var(--pink)}
+.toc-num{font-family:var(--font-title);font-style:italic;font-size:20px;color:var(--pink-deep);min-width:30px}
+.toc-label{font-size:13px;font-weight:700;flex:1}
+.toc-en{font-family:var(--font-title);font-size:10px;color:var(--ink-soft);letter-spacing:.14em}
+.toc-dot{width:7px;height:7px;border-radius:50%;background:var(--pink)}
+.toc-curve{position:absolute;right:-2px;top:50%;font-size:11px;color:var(--pink-deep)}
+
+/* ---- 关于我 ---- */
+.about-card{
+  position:relative;background:rgba(255,255,255,.82);border:1px solid var(--line);
+  border-radius:4px;padding:16px 18px;margin:12px 0;box-shadow:1px 2px 6px rgba(91,74,85,.07);
+}
+.about-card .clip{left:26px}
+.about-row{display:flex;gap:8px;margin:7px 0;font-size:12px;line-height:1.55}
+.about-row b{color:var(--pink-deep);min-width:66px;font-weight:700}
+.about-row span{color:var(--ink)}
+.chip-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{background:var(--pink-soft);color:var(--pink-deep);border:1px solid var(--pink);border-radius:14px;padding:3px 11px;font-size:11px;font-weight:700}
+.chip.b{background:#E6F1F6;color:#5D87A0;border-color:var(--blue-deep)}
+.chip.g{background:#E7F2EA;color:#6E987D;border-color:var(--mint)}
+.chip.l{background:#EEE7F6;color:#8A73A8;border-color:var(--lav)}
+.placeholder-box{border:1.5px dashed var(--pink);border-radius:6px;padding:14px;text-align:center;color:var(--ink-soft);font-size:11px;background:rgba(251,228,238,.35)}
+.receipt{
+  background:repeating-linear-gradient(0deg,#FFFDF8 0 22px,#F3E8EE 22px 23px);
+  border:1px solid var(--line);padding:14px 16px;font-family:var(--font-title);
+  font-size:11px;color:var(--ink-soft);position:relative;
+}
+.receipt h4{margin:0 0 8px;font-size:14px;color:var(--ink);letter-spacing:.1em}
+
+/* ---- 拍立得照片墙 ---- */
+.polaroid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.polaroid-grid--large{grid-template-columns:repeat(2,1fr);gap:14px}
+.polaroid-grid--large img{aspect-ratio:5/4}
+.polaroid{
+  background:#fff;padding:7px 7px 24px;border-radius:2px;
+  box-shadow:1px 3px 8px rgba(91,74,85,.18);position:relative;cursor:zoom-in;
+  transition:transform .22s;
+}
+.polaroid:nth-child(3n+1){transform:rotate(-3deg)}
+.polaroid:nth-child(3n+2){transform:rotate(2deg)}
+.polaroid:nth-child(3n){transform:rotate(-1.5deg)}
+.polaroid:hover{transform:rotate(0) scale(1.05);z-index:5}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:contain;background:#F6F1F4}
+.polaroid figcaption{position:absolute;bottom:5px;left:0;right:0;text-align:center;font-family:var(--font-hand);font-size:10px;color:var(--ink-soft)}
+.polaroid .pin{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:var(--pink-deep);box-shadow:inset 0 -2px 2px rgba(0,0,0,.2)}
+
+/* ---- 照片档案卡 ---- */
+.archive-card{display:flex;gap:12px;background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:4px;padding:12px;margin:9px 0}
+.archive-card img{width:96px;height:96px;object-fit:contain;background:#F6F1F4;border:1px solid var(--line);cursor:zoom-in;flex-shrink:0}
+.archive-card .body{flex:1;min-width:0}
+.archive-card h4{margin:0 0 5px;font-size:13px;color:var(--ink)}
+.archive-card p{margin:3px 0;font-size:11px;color:var(--ink-soft)}
+.tag-mini{display:inline-block;background:var(--blue);color:#4E7A92;border-radius:10px;padding:2px 8px;font-size:10px;margin-top:5px}
+
+/* ---- 胶片条 ---- */
+.filmstrip{position:relative;background:#3A3038;padding:12px 14px;border-radius:4px;margin:12px 0}
+.filmstrip::before,.filmstrip::after{content:"";position:absolute;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,transparent 0 8px,#5A4C58 8px 14px)}
+.filmstrip::before{top:2px}.filmstrip::after{bottom:2px}
+.film-frames{display:flex;gap:8px;overflow-x:auto;padding:6px 0}
+.film-frames img{width:86px;height:64px;object-fit:contain;background:#FFFDF8;flex-shrink:0;cursor:zoom-in;border-radius:2px}
+.video-frame{width:100%;display:flex;align-items:center;justify-content:center;background:#2C242B;border-radius:4px;overflow:hidden;margin:8px 0;min-height:0}
+.video-frame video{display:block;max-width:100%;max-height:320px;object-fit:contain}
+.video-frame--compact video{max-height:240px}
+.video-label{font-size:11px;color:var(--ink-soft);margin:4px 0 8px}
+
+/* ---- 拼贴小图网格 ---- */
+.mosaic{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.mosaic img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#F6F1F4;border:1px solid var(--line);cursor:zoom-in;border-radius:2px}
+.mosaic--original{grid-template-columns:1fr;gap:8px}
+.mosaic--original img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+.support-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.support-figure,.setting-figure,.character-cell{margin:0;background:#fff;border:1px solid var(--line);padding:4px 4px 16px;position:relative}
+.support-figure img,.setting-figure img,.character-cell img{width:100%;aspect-ratio:1;object-fit:contain;background:#F6F1F4;cursor:zoom-in}
+.support-figure figcaption,.setting-figure figcaption{position:absolute;bottom:2px;left:0;right:0;text-align:center;font-size:8px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.feature-shot{width:100%;max-height:52%;object-fit:contain;background:#F6F1F4;border:1px solid var(--line);border-radius:3px;cursor:zoom-in}
+
+/* ---- 课程剪报 ---- */
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:10px;align-items:start}
+.course-card{
+  background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:3px;
+  padding:8px;position:relative;box-shadow:1px 2px 5px rgba(91,74,85,.08);cursor:zoom-in;
+}
+.course-card img{width:100%;height:auto;max-height:132px;object-fit:contain;background:#F6F1F4;margin:0 auto}
+.course-card h5{margin:6px 0 2px;font-size:11px;color:var(--ink)}
+.course-card p{margin:0;font-size:9px;color:var(--ink-soft)}
+.course-card .num{position:absolute;top:6px;left:6px;background:var(--pink-deep);color:#fff;font-family:var(--font-title);font-size:10px;padding:2px 7px;border-radius:10px}
+
+/* ---- 角色设定与立绘 ---- */
+.section-label{font-family:var(--font-hand);font-size:13px;color:var(--pink-deep);margin:12px 0 6px}
+.setting-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.setting-grid--id{grid-template-columns:repeat(4,1fr)}
+.layer-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.character-feature{margin:0 0 8px}
+.character-feature img{width:100%;max-height:190px;object-fit:contain;background:#F6F1F4;border:1px solid var(--line);border-radius:3px;cursor:zoom-in}
+.character-feature figcaption{font-size:10px;color:var(--ink-soft);margin-top:4px;text-align:center}
+.character-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.character-cell img{aspect-ratio:3/4}
+
+/* ---- 贴纸小游戏 ---- */
+.sticker-game{position:relative;height:100%;display:flex;flex-direction:column}
+.game-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.game-toolbar h3{font-family:var(--font-title);font-size:22px;margin:0;color:var(--pink-deep);font-style:italic}
+.game-btns{display:flex;gap:6px}
+.game-btn{border:1px solid var(--pink);background:var(--paper);color:var(--pink-deep);border-radius:16px;padding:5px 12px;font-size:11px;font-weight:700}
+.game-btn:hover{background:var(--pink);color:#fff}
+.game-body{display:flex;gap:12px;flex:1;min-height:0}
+.game-canvas{
+  position:relative;flex:1;min-width:0;
+  background:
+    radial-gradient(circle at 50% 40%,#FFF 0 38%,transparent 39%),
+    repeating-linear-gradient(0deg,transparent 0 21px,var(--pink-grid) 21px 22px),
+    repeating-linear-gradient(90deg,transparent 0 21px,var(--pink-grid) 21px 22px),
+    #FFFDF9;
+  border:2px dashed var(--pink);border-radius:8px;overflow:hidden;touch-action:none;
+}
+.game-doll{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:210px;pointer-events:none}
+.game-tray{
+  width:112px;flex-shrink:0;display:flex;flex-direction:column;gap:8px;overflow-y:auto;
+  background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:8px;padding:8px;
+}
+.sticker-item{
+  width:56px;height:56px;flex-shrink:0;border:1px dashed var(--pink);border-radius:8px;
+  background:#fff;display:grid;place-items:center;cursor:grab;user-select:none;touch-action:none;
+  font-size:30px;transition:transform .15s;
+}
+.sticker-item:hover{transform:scale(1.12)}
+.placed{position:absolute;cursor:grab;user-select:none;touch-action:none;filter:drop-shadow(1px 2px 2px rgba(0,0,0,.2));z-index:5}
+.game-tip{font-size:10px;color:var(--ink-soft);margin-top:6px}
+
+/* ---- 联系方式 ---- */
+.letter{
+  position:relative;background:#FFFDF7;border:1px solid var(--line);border-radius:4px;
+  padding:22px 24px;box-shadow:2px 3px 10px rgba(91,74,85,.1);
+  background-image:repeating-linear-gradient(0deg,transparent 0 27px,var(--pink-grid) 27px 28px);
+}
+.letter h3{font-family:var(--font-hand);color:var(--pink-deep);font-size:22px;margin:0 0 12px}
+.letter p{font-size:12px;line-height:2;color:var(--ink);margin:2px 0}
+.letter .stamp{position:absolute;top:14px;right:16px;width:58px;height:66px;border:2px dashed var(--pink-deep);display:grid;place-items:center;font-family:var(--font-title);font-size:10px;color:var(--pink-deep);transform:rotate(8deg)}
+.postcard{
+  position:relative;background:linear-gradient(135deg,#EAF3F7,#FCF0F5);border:1px solid var(--line);
+  border-radius:4px;padding:18px;height:200px;box-shadow:2px 3px 10px rgba(91,74,85,.1);
+}
+.postcard::before{content:"";position:absolute;top:0;bottom:0;left:52%;width:1px;background:var(--line)}
+.postcard .msg{position:absolute;left:16px;top:16px;bottom:16px;right:54%;font-family:var(--font-hand);font-size:14px;color:var(--ink)}
+.postcard .addr{position:absolute;right:16px;top:16px;bottom:16px;left:57%;font-size:10px;color:var(--ink-soft);display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+
+/* ---- 通用滚动区 ---- */
+.scroll-area{height:100%;overflow-y:auto;padding-right:4px}
+.scroll-area::-webkit-scrollbar{width:6px}
+.scroll-area::-webkit-scrollbar-thumb{background:var(--pink);border-radius:3px}
+
+@media (max-width:760px){
+  .polaroid-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+  .game-body{flex-direction:column-reverse}
+  .game-tray{width:100%;flex-direction:row;flex-wrap:nowrap;height:70px}
+  .sticker-item{width:50px;height:50px;font-size:26px}
+  .game-canvas{min-height:240px}
+  .toc-item{padding:6px 9px}
+  .about-row{font-size:11px}
+}

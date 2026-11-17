@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="一本可以翻阅的个人作品集手账 · 插画、动态、三维设计" />
+<title>我的创作手账 · Portfolio Journal</title>
+<link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="./pages.css" />
+</head>
+<body>
+
+<div class="desk">
+  <div class="desk__grain" aria-hidden="true"></div>
+
+  <!-- 顶部小工具条 -->
+  <div class="toptools" id="toptools" hidden>
+    <span class="toptools__logo">✿ PORTFOLIO JOURNAL</span>
+    <div class="toptools__right">
+      <button type="button" id="soundBtn" class="tt-btn" title="装饰音效">♫</button>
+      <button type="button" id="helpBtn" class="tt-btn" title="操作提示">?</button>
+    </div>
+  </div>
+
+  <!-- 书本舞台 -->
+  <div class="stage">
+    <div class="book" id="book">
+
+      <!-- 封面（合上状态） -->
+      <div class="cover" id="cover" role="button" tabindex="0" aria-label="打开手账">
+        <div class="cover__spine">
+          <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+          <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+          <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+        </div>
+        <div class="cover__face">
+          <div class="cover__tape tape--a"></div>
+          <div class="cover__tape tape--b"></div>
+          <div class="cover__inner">
+            <span class="cover__eyebrow">PERSONAL WORKS · 2026</span>
+            <h1 class="cover__title">MY<br /><em>CREATIVE</em><br />JOURNAL</h1>
+            <span class="cover__subtitle">我的创作手账</span>
+            <div class="cover__rule"></div>
+            <span class="cover__note">插画 / 动态 / 三维 / 课程实践</span>
+            <div class="cover__deco" aria-hidden="true">
+              <span class="deco-star">★</span><span class="deco-heart">♥</span>
+              <span class="deco-spark">✦</span><span class="deco-star s2">★</span>
+            </div>
+            <span class="cover__open">— 点击封面打开 —</span>
+          </div>
+          <div class="cover__lace" aria-hidden="true"></div>
+        </div>
+        <div class="cover__edge" aria-hidden="true"></div>
+      </div>
+
+      <!-- 翻开的书本 -->
+      <div class="spread" id="spread" hidden>
+        <div class="sheet sheet--left" id="sheetLeft">
+          <div class="sheet__paper" id="paperLeft"></div>
+          <div class="sheet__edge" aria-hidden="true"></div>
+        </div>
+        <div class="sheet sheet--right" id="sheetRight">
+          <div class="sheet__paper" id="paperRight"></div>
+          <div class="sheet__edge" aria-hidden="true"></div>
+        </div>
+        <div class="flipper" id="flipper" aria-hidden="true">
+          <div class="flipper__face flipper__front" id="flipFront"></div>
+          <div class="flipper__face flipper__back" id="flipBack"></div>
+          <div class="flipper__edge"></div>
+        </div>
+        <div class="gutter" aria-hidden="true">
+          <span class="gutter__ring"></span><span class="gutter__ring"></span>
+          <span class="gutter__ring"></span><span class="gutter__ring"></span>
+          <span class="gutter__ring"></span><span class="gutter__ring"></span>
+          <span class="gutter__ring"></span><span class="gutter__ring"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 侧边索引标签 -->
+  <nav class="tabs-rail" id="tabsRail" aria-label="章节索引" hidden></nav>
+
+  <!-- 底部翻页控制 -->
+  <div class="controls" id="controls" hidden>
+    <button type="button" class="nav-btn" id="prevBtn" aria-label="上一页">‹ 上一页</button>
+    <span class="page-count" id="pageCount">— / —</span>
+    <button type="button" class="nav-btn" id="nextBtn" aria-label="下一页">下一页 ›</button>
+    <span class="edge-hint" id="edgeHint">点击书页边缘翻页 · 可拖动</span>
+  </div>
+</div>
+
+<!-- 灯箱 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="作品预览" hidden>
+  <button class="lightbox__close" id="lightboxClose" type="button" aria-label="关闭">×</button>
+  <figure><img id="lightboxImg" src="" alt="" /><figcaption id="lightboxCap"></figcaption></figure>
+</div>
+
+<!-- 提示气泡 -->
+<div class="toast" id="toast" hidden></div>
+
+<script src="./data/works.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
